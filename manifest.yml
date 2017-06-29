@@ -1,0 +1,9 @@
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  name: mytodos
+  disk_quota: 1024M
+  buildpack: sdk-for-nodejs
+  services:
+  - todo-cloudant

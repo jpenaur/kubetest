@@ -1,0 +1,50 @@
+---
+# Application to deploy
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mytodos
+spec:
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: mytodos
+        tier: frontend
+    spec:
+      containers:
+      - name: mytodos
+        image: registry.ng.bluemix.net/jpenaur/mytodos:v1
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        volumeMounts:
+          - mountPath: /opt/service-bind # Mount the "service-bind-volume" volume into the pod.
+            name: service-bind-volume
+      volumes:
+        - name: service-bind-volume
+          secret:
+            defaultMode: 420
+            secretName: binding-todo-cloudant
+---
+# Service to expose frontend
+apiVersion: v1
+kind: Service
+metadata:
+  name: mytodos
+  labels:
+    app: mytodos
+    tier: frontend
+spec:
+  # if your cluster supports it, uncomment the following to automatically create
+  # an external load-balanced IP for the frontend service.
+  # type: LoadBalancer
+  type: NodePort
+  ports:
+  - port: 8080 # Internal Port
+    nodePort: 31513
+  selector:
+    app: mytodos
+    tier: frontend
