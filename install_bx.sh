@@ -22,6 +22,11 @@ echo "Install kubectl"
 wget --quiet --output-document=/tmp/Bluemix_CLI/bin/kubectl  https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 chmod +x /tmp/Bluemix_CLI/bin/kubectl
 
+echo "Install Docker"
+wget --quiet --output-document=/tmp/Bluemix_CLI/bin/docker https://get.docker.io/builds/Linux/x86_64/docker-latest -O docker
+chmod +x /tmp/Bluemix_CLI/bin/docker
+
+
 if [ -n "$DEBUG" ]; then
   bx --version
   bx plugin list
