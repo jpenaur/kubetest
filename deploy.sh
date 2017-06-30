@@ -13,9 +13,6 @@ if [ $? -ne 0 ]; then
 fi
 eval "$exp"
 
-#Build image
-docker build -t registry.ng.bluemix.net/$NAMESPACE/mytodos:v1 .
-docker push registry.ng.bluemix.net/$NAMESPACE/mytodos:v1
 
 bx cr images
 

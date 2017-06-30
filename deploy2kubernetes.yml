@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mytodos
-        image: registry.ng.bluemix.net/jpenaur/mytodos:v1
+        image: registry.ng.bluemix.net/jpenaur/mytodos:1
         imagePullPolicy: Always
         resources:
           requests:
