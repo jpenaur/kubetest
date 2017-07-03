@@ -11,13 +11,21 @@ chmod +x /tmp/Bluemix_CLI/bin/*
 
 export PATH="/tmp/Bluemix_CLI/bin:$PATH"
 
+# Create docker alias
+echo "#!/bin/sh" >/tmp/docker-1.13.1/docker
+echo "/tmp/docker-1.13.1/docker \"\$@\" " >>/tmp/docker-1.13.1/docker
+chmod +x /tmp/docker-1.13.1/docker/*
+
+export PATH="/tmp/docker-1.13.1/docker:$PATH"
+docker run hello-world
+
 # Install Armada CS plugin
 echo "Install the Bluemix container-service plugin"
-uname
 bx plugin install container-service -r Bluemix
 bx plugin install container-registry -r Bluemix
-wget -qO- https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-docker run hello-world
+wget --quiet --ouput-document=/tmp/docker-1.13.1.tgz https://get.docker.com/builds/Linux/x86_64/docker-1.13.1.tgz
+tar -xf /tmp/docker-1.13.1.tgz --directory=/tmp
+
 
 echo "Install kubectl"
 wget --quiet --output-document=/tmp/Bluemix_CLI/bin/kubectl  https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
