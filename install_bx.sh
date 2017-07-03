@@ -15,15 +15,15 @@ export PATH="/tmp/Bluemix_CLI/bin:$PATH"
 wget --quiet --output-document=/tmp/docker-1.13.1.tgz https://get.docker.com/builds/Linux/x86_64/docker-1.13.1.tgz
 tar -xf /tmp/docker-1.13.1.tgz --directory=/tmp
 ls /tmp
-ls /tmp/docker-1.13.1
+ls /tmp/docker
 # Create docker alias
-echo "#!/bin/sh" >/tmp/docker-1.13.1/docker/docker
-echo "/tmp/docker-1.13.1/docker/ \"\$@\" " >>/tmp/docker-1.13.1/docker/docker
-chmod +x /tmp/docker-1.13.1/docker/*
+echo "#!/bin/sh" >/tmp/docker/docker
+echo "/tmp/docker/ \"\$@\" " >>/tmp/docker/docker
+chmod +x /tmp/docker/*
 
 
 
-export PATH="/tmp/docker-1.13.1/docker:$PATH"
+export PATH="/tmp/docker:$PATH"
 docker run hello-world
 
 # Install Armada CS plugin
