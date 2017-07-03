@@ -18,7 +18,6 @@ ls /tmp
 ls /tmp/docker
 # Create docker alias
 echo "#!/bin/sh" >/tmp/docker/docker
-echo "/tmp/docker/ \"\$@\" " >>/tmp/docker/docker
 chmod +x /tmp/docker/*
 
 
