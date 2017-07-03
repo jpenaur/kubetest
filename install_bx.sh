@@ -11,6 +11,9 @@ chmod +x /tmp/Bluemix_CLI/bin/*
 
 export PATH="/tmp/Bluemix_CLI/bin:$PATH"
 
+
+wget --quiet --ouput-document=/tmp/docker-1.13.1.tgz https://get.docker.com/builds/Linux/x86_64/docker-1.13.1.tgz
+tar -xf /tmp/docker-1.13.1.tgz --directory=/tmp
 # Create docker alias
 echo "#!/bin/sh" >/tmp/docker-1.13.1/docker/docker
 echo "/tmp/docker-1.13.1/docker/ \"\$@\" " >>/tmp/docker-1.13.1/docker/docker
@@ -23,8 +26,7 @@ docker run hello-world
 echo "Install the Bluemix container-service plugin"
 bx plugin install container-service -r Bluemix
 bx plugin install container-registry -r Bluemix
-wget --quiet --ouput-document=/tmp/docker-1.13.1.tgz https://get.docker.com/builds/Linux/x86_64/docker-1.13.1.tgz
-tar -xf /tmp/docker-1.13.1.tgz --directory=/tmp
+
 
 
 echo "Install kubectl"
