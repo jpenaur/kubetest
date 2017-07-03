@@ -14,8 +14,7 @@ export PATH="/tmp/Bluemix_CLI/bin:$PATH"
 
 wget --quiet --output-document=/tmp/docker-1.13.1.tgz https://get.docker.com/builds/Linux/x86_64/docker-1.13.1.tgz
 tar -xf /tmp/docker-1.13.1.tgz --directory=/tmp
-ls /tmp
-ls /tmp/docker
+
 # Create docker alias
 echo "#!/bin/sh" >/tmp/docker/docker
 chmod +x /tmp/docker/*
