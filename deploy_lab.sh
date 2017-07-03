@@ -23,3 +23,6 @@ bx cr images
 kubectl delete --ignore-not-found=true -f deploy2kubernetes.yml
 
 kubectl create -f deploy2kubernetes.yml
+kubectl describe service mytodos
+kubectl get nodes
+kubectl describe service mytodos
