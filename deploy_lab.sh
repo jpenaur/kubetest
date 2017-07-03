@@ -14,9 +14,9 @@ fi
 eval "$exp"
 
 docker run hello-world
-docker build -t registry.ng.bluemix.net/jpenaur/mytodos:v1 .
-docker tag mytodos:v1 registry.ng.bluemix.net/jpenaur/mytodos:v1
-docker push registry.ng.bluemix.net/jpenaur/mytodos:v1
+docker build -t registry.ng.bluemix.net/jpenaur/mytodos:v2 .
+docker tag mytodos:v1 registry.ng.bluemix.net/jpenaur/mytodos:v2
+docker push registry.ng.bluemix.net/jpenaur/mytodos:v2
 
 bx cr images
 
