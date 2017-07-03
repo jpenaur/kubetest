@@ -24,7 +24,7 @@ NU=$NU\i
 sed -i "$NU\ \ type: NodePort" deploy2kubernetes.yml #For OSX: brew install gnu-sed; replace sed references with gsed
 
 echo -e "Deleting previous version of app if it exists"
-kubectl delete --ignore-not-found=true   -f deploy2kubernetes.yml
+kubectl delete --ignore-not-found=true -f deploy2kubernetes.yml
 
 echo -e "Creating pods"
 kubectl create -f deploy2kubernetes.yml
