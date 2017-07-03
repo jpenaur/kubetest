@@ -12,8 +12,8 @@ chmod +x /tmp/Bluemix_CLI/bin/*
 export PATH="/tmp/Bluemix_CLI/bin:$PATH"
 
 # Create docker alias
-echo "#!/bin/sh" >/tmp/docker-1.13.1/docker
-echo "/tmp/docker-1.13.1/docker \"\$@\" " >>/tmp/docker-1.13.1/docker
+echo "#!/bin/sh" >/tmp/docker-1.13.1/docker/docker
+echo "/tmp/docker-1.13.1/docker/ \"\$@\" " >>/tmp/docker-1.13.1/docker/docker
 chmod +x /tmp/docker-1.13.1/docker/*
 
 export PATH="/tmp/docker-1.13.1/docker:$PATH"
