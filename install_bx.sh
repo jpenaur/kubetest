@@ -41,3 +41,4 @@ if [ -n "$DEBUG" ]; then
   bx --version
   bx plugin list
 fi
+
